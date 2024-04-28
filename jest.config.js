@@ -9,9 +9,9 @@ const config = {
   coverageProvider: 'babel',
   extensionsToTreatAsEsm: ['.ts'],
   preset: 'ts-jest',
-  collectCoverageFrom: [
-    'test/*.{js,jsx, tsx, ts}' // 所有 js/ts/jsx/tsx
-  ]
+  testEnvironment: 'node',
+  coveragePathIgnorePatterns: ['/node_modules/'],
+  collectCoverageFrom: ['test/*.{js,jsx, tsx, ts}']
 }
 
 export default config
