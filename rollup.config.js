@@ -7,7 +7,6 @@ import terser from '@rollup/plugin-terser'
 import babel from '@rollup/plugin-babel'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 
-const packname = 'Devix'
 const entries = ['src/index.ts']
 const plugins = [
   resolve({
@@ -35,11 +34,6 @@ const rollup_config = [
       {
         file: input.replace('src/', 'dist/').replace('.ts', '.cjs.js'),
         format: 'cjs'
-      },
-      {
-        name: packname,
-        file: input.replace('src/', 'dist/').replace('.ts', '.umd.js'),
-        format: 'umd'
       }
     ],
     plugins
