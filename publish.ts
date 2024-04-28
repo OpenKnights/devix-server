@@ -18,7 +18,7 @@ const { data: pkg } = await io.json<{
 console.log(`> publish ${pkg.name} v` + pkg.version)
 // 根据 version beta 字符判断发布 beta 版本还是正常版本
 if (pkg.version.indexOf('beta') != -1) {
-  await $`npm publish --no-git-checks --tag beta`
+  await $`npm publish --tag beta`
 } else {
-  await $`npm publish --no-git-checks`
+  await $`npm publish`
 }
