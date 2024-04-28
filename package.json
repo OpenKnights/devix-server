@@ -1,7 +1,7 @@
 {
   "name": "devix-server",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Devix-server is a utility library for development and service-related tasks.",
   "author": "king-3 <w2196592083@gmail.com>",
   "license": "MIT",
