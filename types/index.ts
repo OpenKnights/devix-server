@@ -1,5 +1,4 @@
-//! test types
-export interface ITestServer extends Koa {
+export interface ITestServer {
   http?: any
   callback: () => any
   close?: () => void
@@ -9,12 +8,12 @@ export interface ITestServer extends Koa {
   use?: any
 }
 
-interface TestServerOption {
+export interface ITestServerOption {
   url: string
   method: string
   handler: (ctx: any, next: any) => any
 }
 
 export interface ITestServerOptions {
-  routes?: Array<TestServerOption>
+  routes?: Array<ITestServerOption>
 }

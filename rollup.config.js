@@ -1,29 +1,11 @@
 import dts from 'rollup-plugin-dts'
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
+import esbuild from 'rollup-plugin-esbuild'
 import typescript from 'rollup-plugin-typescript2'
-import json from '@rollup/plugin-json'
-import terser from '@rollup/plugin-terser'
-import babel from '@rollup/plugin-babel'
-import { DEFAULT_EXTENSIONS } from '@babel/core'
 
 const entries = ['src/index.ts']
-const plugins = [
-  resolve({
-    preferBuiltins: true
-  }),
-  json(),
-  commonjs(),
-  typescript(),
-  babel({
-    babelHelpers: 'bundled',
-    exclude: 'node_modules/**',
-    extensions: [...DEFAULT_EXTENSIONS, '.ts']
-  }),
-  terser()
-]
+const plugins = [typescript(), esbuild()]
 
-const rollup_config = [
+const rollupConfig = [
   ...entries.map((input) => ({
     input,
     output: [
@@ -42,7 +24,7 @@ const rollup_config = [
     input,
     output: [
       {
-        file: input.replace('src/', 'dist/').replace('.ts', '.d.ts'),
+        file: input.replace('src/', './').replace('.ts', '.d.ts'),
         format: 'esm'
       }
     ],
@@ -50,4 +32,4 @@ const rollup_config = [
   }))
 ]
 
-export default rollup_config
+export default rollupConfig

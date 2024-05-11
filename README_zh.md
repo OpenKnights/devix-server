@@ -1,26 +1,26 @@
 # devix-server
 
-> Devix-server is a utility library for development and service-related tasks.（ English | [简体中文](README_zh.md) ）
+> Devix-server 是一个用于开发和服务相关的工具库。（ 简体中文 | [English](README.md) ）
 
-## Install
+## 安装
 
-Please make sure you install this library using npm or another package manager in a Node.js environment.
+请确保您在 Node.js 环境下使用 npm 或其他包管理器安装此库。
 
 ```shell
 npm install --save-dev devix-server
 ```
 
-Then, utilize modern module bundling tools such as Vite or Webpack to import this library using modular syntax.
+然后，利用现代的模块捆绑工具，如 Vite 或 Webpack，以模块化的语法引入此库。
 
 ```javascript
-// Using ES Module
+// 使用 ES Module
 import { [[ModuleName]] } from 'devix-server'
 
-// Using CommonJS
+// 使用 CommonJS
 const { [[ModuleName]]  } = require('devix-server')
 ```
 
-## Usage
+## 使用
 
 ```javascript
 import { createTestServer } from 'devix-server'
@@ -39,7 +39,7 @@ const routes = [
   }
 ]
 
-// Using createTestServer
+// 使用 createTestServer
 let server = await createTestServer({ routes })
 const prefix = (api) => `${server.url}${api}`
 console.log(`createTestServer url:`, server.url)
@@ -55,8 +55,8 @@ setTimeout(() => {
 }, 10000)
 ```
 
-## API
+## 方法
 
 ### createTestServer
 
-A simple Koa test server can be easily configured based on routes.
+可以根据路由轻松配置一个简单的 Koa 测试服务器

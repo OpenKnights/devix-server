@@ -5,7 +5,7 @@ const routes = [
   {
     url: '/testGet',
     method: 'get',
-    handler: async (ctx: any, next: any) => {
+    handler: async (ctx: any) => {
       ctx.body = {
         code: 0,
         data: '/testGet',
@@ -21,17 +21,11 @@ afterAll(() => {
   server.close()
 })
 
-
 const prefix = (api: string) => `${server.url}${api}`
 
 test('should be ok when response in time', async () => {
-  expect.assertions(1)
-
   // receive response before timeout
-  let response = await fetch(prefix('/testGet'))
-  .then((res) => res.json())
-
+  const response = await fetch(prefix('/testGet')).then((res) => res.json())
 
   expect(response.data).toEqual('/testGet')
-
 })

@@ -1,9 +1,9 @@
 import http from 'http'
 import Koa from 'koa'
-import Router from 'koa-router'
-import json from 'koa-json'
 import bodyparser from 'koa-bodyparser'
-import { ITestServer, ITestServerOptions } from '../types'
+import json from 'koa-json'
+import Router from 'koa-router'
+import { ITestServer, ITestServerOption, ITestServerOptions } from '../types'
 
 export const createTestServer = (options: ITestServerOptions = {}) => {
   const server: ITestServer = new Koa()
@@ -12,7 +12,7 @@ export const createTestServer = (options: ITestServerOptions = {}) => {
   server.use(json({}))
 
   if (options.routes) {
-    options.routes.forEach((route) => {
+    options.routes.forEach((route: ITestServerOption) => {
       router[route.method](route.url, route.handler)
     })
     server.use(router.routes())
